@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import useProducts from '../../hooks/useProducts';
+import useStorage from '../../hooks/useStorage';
 import Product from '../Product/Product';
 import Summary from '../Summary/Summary';
 
 const Products = () => {
     const [products] = useProducts();
-    const [list, setList] = useState([]);
-
-    useEffect(() => {
-        loadFromStorage();
-    });
-
-    const loadFromStorage = () => {
-        const sp = localStorage.getItem('selectedProducts');
-
-        if (sp && JSON.parse(sp).length) {
-            setList(JSON.parse(sp));
-        }
-    };
+    const [list, setList] = useStorage();
 
     const handleAddToCart = (product) => {
         const newList = [...list, product];
