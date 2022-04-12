@@ -25,6 +25,11 @@ const Products = () => {
         localStorage.setItem('selectedProducts', JSON.stringify(newList));
     };
 
+    const handleClearCart = () => {
+        setList([]);
+        localStorage.removeItem('selectedProducts');
+    };
+
     return (
         <div className='flex'>
             <div className='gap-8 grid grid-cols-3 p-16 w-3/4'>
@@ -33,7 +38,7 @@ const Products = () => {
                 }
             </div>
 
-            <Summary list={list}></Summary>
+            <Summary handler={handleClearCart} list={list}></Summary>
         </div>
     );
 };

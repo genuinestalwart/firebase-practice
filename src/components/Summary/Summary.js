@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Summary = ({ list }) => {
+const Summary = ({ list, handler }) => {
     let items = 0, price = 0, charge = 0;
 
     list.forEach(el => {
@@ -27,8 +27,8 @@ const Summary = ({ list }) => {
                 <h4 className='font-medium my-4 text-base text-slate-700'>Grand Total: ${total}</h4>
             </div>
 
-            <button className='bg-red-400 hover:bg-red-500 block my-4 py-2 rounded text-white w-full'>Clear Cart <FontAwesomeIcon className='ml-2' icon={faTrashCan}></FontAwesomeIcon></button>
-            <Link to='/orders'><button className='bg-orange-400 hover:bg-orange-500 block my-4 py-2 rounded text-white w-full'>Review Orders <FontAwesomeIcon className='ml-2' icon={faArrowRight}></FontAwesomeIcon></button></Link>
+            <button onClick={handler} className='bg-red-400 hover:bg-red-500 block my-4 py-2 active:ring ring-offset-2 ring-red-400 rounded text-white w-full'>Clear Cart <FontAwesomeIcon className='ml-2' icon={faTrashCan}></FontAwesomeIcon></button>
+            <Link to='/orders'><button className='bg-orange-400 hover:bg-orange-500 block my-4 py-2 active:ring ring-offset-2 ring-orange-400 rounded text-white w-full'>Review Orders <FontAwesomeIcon className='ml-2' icon={faArrowRight}></FontAwesomeIcon></button></Link>
         </div>
     );
 };

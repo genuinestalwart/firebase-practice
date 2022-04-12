@@ -1,6 +1,6 @@
 import logo from '../../images/logo.svg';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
     return (
@@ -11,10 +11,10 @@ const Header = () => {
             </div>
 
             <nav className='flex justify-between text-white w-2/5'>
-                <Link className='hover:text-amber-400' to='/products'>Products</Link>
-                <Link className='hover:text-amber-400' to='/orders'>Orders</Link>
-                <Link className='hover:text-amber-400' to='/login'>Sign in</Link>
-                <Link className='hover:text-amber-400' to='/register'>Sign up</Link>
+                <CustomLink to='/products'>Products</CustomLink>
+                <CustomLink to='/orders'>Orders</CustomLink>
+                <CustomLink to='/login'>Sign in</CustomLink>
+                <CustomLink to='/register'>Sign up</CustomLink>
             </nav>
         </header>
     );
